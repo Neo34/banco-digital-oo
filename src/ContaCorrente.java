@@ -7,6 +7,11 @@ public class ContaCorrente extends Conta {
     }
 
     @Override
+    public void transferir(double valor, IConta contaDestino) {
+
+    }
+
+    @Override
     public void imprimirExtrato() {
         System.out.println("=== Extrato Conta Corrente ===");
         super.imprimirInfosComuns();

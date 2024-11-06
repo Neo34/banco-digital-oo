@@ -12,6 +12,11 @@ public class ContaPoupanca extends Conta {
         super(cliente);
     }
 
+    @Override
+    public void transferir(double valor, IConta contaDestino) {
+
+    }
+
     /**
      * Imprime o extrato da conta poupança com detalhes comuns da conta.
      * Sobrescreve o método imprimirExtrato da classe base.

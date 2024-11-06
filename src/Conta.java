@@ -38,16 +38,15 @@ public abstract class Conta implements IConta {
         saldo += valor;
     }
 
-    @Override
-    public void transferir(double valor, IConta contaDestino) {
-        if (contaDestino == null) {
+    public void transferir(double valor, double contaDestino) {
+        if (contaDestino == -1) {
             throw new IllegalArgumentException("Conta de destino não pode ser nula.");
         }
         if (valor == 0 || valor <= saldo) {
             throw new IllegalArgumentException("Saldo Insuficiente.");
         }
         this.sacar(valor);
-        contaDestino.depositar(valor);
+        contaDestino -= valor;
     }
 
     public int getAgencia() {
@@ -67,5 +66,11 @@ public abstract class Conta implements IConta {
         System.out.println(String.format("Agencia: %d", this.agencia));
         System.out.println(String.format("Numero: %d", this.numero));
         System.out.println(String.format("Saldo: %.2f", this.saldo));
+    }
+
+    public abstract void imprimirExtrato();
+
+    public Cliente getCliente() {
+        return null;
     }
 }
